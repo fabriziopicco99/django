@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preentrega 3</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header>
+    <h1>Preentrega 3</h1>
+</header>
+<nav class="navbar">
+    <ul>
+        <li>
+        <a href="/">Inicio</a>
+        </li>
+        <li>
+        <a href="/autos">Autos</a>
+        </li>
+        <li>
+        <a href="/personas">Personas</a>
+        </li>
+        <li>
+        <a href="/animales">Animales</a>
+        </li>
+    </ul>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

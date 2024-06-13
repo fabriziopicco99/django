@@ -1,0 +1,39 @@
+{% extends "header.html" %}
+
+{% block content %}
+<h1 style="text-align: center;">Personas</h1>
+<section style="display: flex; flex-direction: row; justify-content: center; gap: 10px;">
+  <section class="div-form">
+    <div class="agregar">
+      <h3>Agregar Personas</h3>
+      <form action="/crear_persona/" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Agregar</button>
+      </form>
+    </div>
+    <div class="buscar">
+      <h3>Buscar Personas</h3>
+      <form action="">
+        {% csrf_token %}
+        {{ form_buscar }}
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+  </section>
+  <section class="lista">
+    <h3>Listado Personas</h3>
+    <div class="table-result" style="height: 400px; overflow: scroll;">
+      {% for persona in personas %}
+        <article class="listado" style="margin: 1px; border-radius: 3px;">
+          <p style="text-align: center; color: white; background-color: #333;">Nombre: {{ persona.nombre }}</p>
+          <p>ID: {{ persona.id }}</p>
+          <p>Apellido: {{ persona.apellido }}</p>
+          <p>Edad: {{ persona.edad }}</p>
+          <p>Servicio: {{ persona.servicio }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+{% endblock %}
