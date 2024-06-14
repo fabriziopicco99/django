@@ -25,10 +25,10 @@ class PersonaForm(forms.Form):
 
 #Formulario de autos
 class AutoBuscar(forms.Form):
-    marcar = forms.CharField(label="Marca",max_length=100)
-    modelo = forms.CharField(label="Modelo",max_length=100)
-    año = forms.DateField(label="Año")
-    precio = forms.IntegerField(label="Precio")
+    marcar = forms.CharField(label="Marca",max_length=100, required=False)
+    modelo = forms.CharField(label="Modelo",max_length=100, required=False)
+    año = forms.DateField(label="Año", required=False)
+    precio = forms.IntegerField(label="Precio", required=False)
     
 class AutoForm(forms.Form):
     marca = forms.CharField(label="Marca", max_length=100, required=True)
