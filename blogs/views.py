@@ -16,8 +16,13 @@ class BlogListView(ListView):
     context_object_name = "blogs"
 
     def get_queryset(self):
+        queryset = super().get_queryset()
+        title = self.request.GET.get("title")
+        
+        if title:
+            queryset = queryset.filter(title=title)
 
-        return Blog.objects.filter(user=self.request.user)
+        return queryset
 
 
 class BlogDetailView(DetailView):
