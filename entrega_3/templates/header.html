@@ -25,7 +25,7 @@
               </li>
               {% if user.is_authenticated %}
                 <li class="nav-item" >
-                  <a class="nav-link" href= {% url "edit_user" user.id %} >Mi perfil</a>
+                  <a class="nav-link" href= {% url "edit_user" %} >Mi perfil</a>
                 </li>
                 <li class="nav-item" >
                   <a class="nav-link" href= {% url "logout" %} >Logout</a>

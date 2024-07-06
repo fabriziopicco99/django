@@ -106,14 +106,14 @@ def view_user(request, pk):
         print(e)
 
 @login_required
-def edit_user(request, pk):
+def edit_user(request):
     if request.method == "POST":
         try:
             # print(request.POST)
             #Busco el user que se va a actualizar
             print(f"pk {request}")
             user = get_object_or_404(User, pk=request.user.id)
-            avatar = Avatar.objects.filter(user_id=user.pk).first()
+            avatar = Avatar.objects.get(user_id=user.pk)
             print(f"avatar {avatar}")
             print(f"user {user.pk}")
             #Obtengo los datos del formulario
@@ -124,8 +124,9 @@ def edit_user(request, pk):
             image = request.FILES.get("image")
             #Filtro los campos que se van a actualizar
             user_to_update = {}
+            file_to_update = {}
             if image:
-                user_to_update["image"] = image
+                file_to_update["image"] = image
             if name:
                 user_to_update["name"] = name
             if last_name:
@@ -134,19 +135,19 @@ def edit_user(request, pk):
                 user_to_update["email"] = email
             #Actualizo el User
             print(f"user_to_update {user_to_update}")
-            user_update = AvatarForm(data=user_to_update, instance=avatar)
+            user_update = AvatarForm(data=user_to_update,files=file_to_update, instance=avatar)
             user_update.save()
             return redirect("edit_user")
         except Exception as e:
             print("######################ERROR#######################")
             print(e)
-            avatar = Avatar.objects.get(pk=pk, user=request.user)
+            avatar = Avatar.objects.get(user_id=request.user.id)
             form = AvatarForm(instance=avatar)
             return render(
                 request, "view_user.html", {"error": "Error al guardar el User","form": form}
             )
     else:
-        user = User.objects.get(pk=request.user.pk)
+        user = User.objects.get(pk=request.user.id)
         print(f"user {user.pk}")
         avatar = Avatar.objects.filter(user_id=user.pk).first()
         print(f"avatar {avatar}")
