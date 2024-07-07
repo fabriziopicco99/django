@@ -1,14 +1,16 @@
 {% extends 'header.html' %}
 
 {% block content %}
-    <article>
-        <h1>{{ blog.title }}</h1>
-        <img style="height: 300px; width: 100px;" src={{blog.image.url}} alt="">
-        <p>{{ blog.description }}</p>
-        <p>Creado por: {{ blog.user }}</p>
-        {% if blog.user == user %}
-            <a class="btn btn-primary" href="{% url 'blog_edit' blog.id %}">Editar</a>
-        {% endif %}
-        {% comment %} <a href="{% url 'delete_blog' blog.id %}">Eliminar</a> {% endcomment %}
+    <article class="card" style="width: 50%;">
+        <img class="card-img-top" src={{blog.image.url}} style="width: 100%; height: 50%;" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            <p class="card-text">{{ blog.description }}</p>
+            <p>Creado por: {{ blog.user }}</p>
+            {% if blog.user == user %}
+                <a class="btn btn-primary" href="{% url 'blog_edit' blog.id %}">Editar</a>
+            {% endif %}
+            {% comment %} <a href="{% url 'delete_blog' blog.id %}">Eliminar</a> {% endcomment %}
+        </div>
     </article>
 {% endblock %}
