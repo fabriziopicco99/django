@@ -1,6 +1,4 @@
-Pasos para usar:
+Este proyecto es el trabajo final del curso de coderhouse de python
 
-1. Corre la migraciones 
-2. Visita https://localhost:8000/
-3. Selecciona una opcion de la barra de navegacion
-4. Agrega elementos y usa los filtros
+El video del funcionamineto esta en la carpeta de demo 
+

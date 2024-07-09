@@ -10,19 +10,19 @@ body {
     padding: 0;
 }
 
-header {
+/* header {
     background-color: var(--background-color);
     color: #fff;
     padding: 5px;
     text-align: center;
-}
+} */
 
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
-}
+} */
 
 main {
     display: flex;
@@ -30,9 +30,10 @@ main {
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+    
 }
 
-.navbar a {
+/* .navbar a {
     color: white;
     padding: 14px 20px;
     text-decoration: none;
@@ -58,7 +59,7 @@ main {
     float: left;
     justify-content: space-between;
     margin: 20px;
-} 
+}  */
 
 .listado {
     width: 300px;
